@@ -12,6 +12,12 @@ echo "## plain object instantiation and method call --------------------"
 time for i in {1..99}; do node bench.js plainObjBench; done;
 node bench.js plainObjBench --show-memory-usage
 
+echo "## plain object instantiation and method call (naive impl) ------------"
+## This takes way too long (minutes)
+# time for i in {1..99}; do node bench.js plainObjBenchNaive; done;
+echo -e "\n[takes too long]"
+node bench.js plainObjBenchNaive --show-memory-usage
+
 echo "## plain functions call w/ 2 args --------------------"
 time for i in {1..99}; do node bench.js plainFnBench; done;
 node bench.js plainFnBench --show-memory-usage

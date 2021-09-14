@@ -17,6 +17,7 @@ class MyClass {
 }
 
 originalPlainObj = {
+  attr: 1,
   inc: function (val) { return val + this.attr; },
   static_inc: (val) => val++
 }
@@ -74,12 +75,8 @@ const benchmarks = {
     plain.inc(18);
   },
 
-  plainObjBenchBadPractice: () => {
-    const plain = {
-      attr: 1,
-      inc: function (val) { return val + this.attr; }, // common mistake: a new function per object
-      static_inc: (val) => val++
-    };
+  plainObjBenchNaive: () => {
+    const plain = Object.assign({}, originalPlainObj); // huge performance hit
     plain.inc(10);
     plain.inc(12);
     plain.inc(14);
@@ -96,19 +93,6 @@ const benchmarks = {
   },
 
   plainFnBench: () => {
-    const plain = {
-      attr: 1,
-      inc: originalPlainObj.inc, // reuses original function
-      static_inc: originalPlainObj.static_inc
-    };
-    plain.inc(10);
-    plain.inc(12);
-    plain.inc(14);
-    plain.inc(16);
-    plain.inc(18);
-  },
-
-  plainFnStaticBench: () => {
     const state = { attr: 1 };
     plainInc(state, 10);
     plainInc(state, 12);
@@ -117,7 +101,7 @@ const benchmarks = {
     plainInc(state, 18);
   },
   
-  plainObjStaticBench: () => {
+  plainFnStaticBench: () => {
     plainStaticInc(10);
     plainStaticInc(12);
     plainStaticInc(14);
