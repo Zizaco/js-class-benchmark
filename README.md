@@ -8,6 +8,7 @@ A simple (and non scientific) benchmark that aims to compare the speed and memor
 - OS: Ubuntu 20.04.2 LTS x86_64
 - CPU: Intel i7-10510U (8) @ 4.900GHz
 - Memory: 15747MiB
+- NodeJS: v14.8.0
 
 > ℹ️ You results may differ
 
