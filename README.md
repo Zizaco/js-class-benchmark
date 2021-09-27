@@ -1,6 +1,6 @@
 # NodeJS classes benchmark
 
-A simple (and non scientific) benchmark that aims to compare the speed and memory usage of `prototype`, `classes`, `plain objects` and `plain functions` on object instances (methods) and statically (static methods / plain functions).
+A simple (and non scientific) benchmark to compare the speed and memory usage of `prototype`, `classes`, `plain objects` and `plain functions` on object instances (methods) and that are static (static methods / plain functions).
 
 ## Results
 
